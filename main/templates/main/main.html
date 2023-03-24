@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="pl">
+
+<head>
+    <meta chatset="utf-8" />
+    <title>CISOWIANKA</title>
+    <meta name="descritpion" content="boski trunek" />
+    <meta name="keywords" content="cisowianka, paris platinov, woda, napój" <meta http-equiv="X-UA-Compatible"
+        content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="{%static 'main\style.css'%}?{% now 'U' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <header id="main_header">
+        <h1>CISOWIANKA</h1>
+        <nav>
+            <ol class="main_list">
+                <li><a href="#">Aktualności</a></li>
+                <li><a href="#">Sklep</a>
+                    <ul>
+                        <li><a href="#">Niegazowana</a></li>
+                        <li><a href="#">Lekko gazowana</a></li>
+                        <li><a href="#">Gazowana</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Galeria</a></li>
+                <li><a href="#">Historia</a></li>
+                <li><a href="#">Ujęcia</a>
+                    <ul>
+                        <li><a href="#">Piwniczna Zdrój</a></li>
+                        <li><a href="#">Cisowa</a></li>
+                        <li><a href="#">Trześniowa Zdrój</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Kontakt</a></li>
+            </ol>
+        </nav>
+    </header>
+
+    <main>
+        <section id="bestsellery">
+            <h2>Bestsellery</h2>
+            {% for product in products %}
+            <article class="product">
+
+                <a href="#">
+                    <img src="{% static product.image %}" alt="{{ product.title }}" height="200 px">
+                </a>
+                <h3>{{ product.title }}</h3>
+                <h4>{{product.price}} zł</h4>
+            </article>
+            {% endfor %}
+        </section>
+    </main>
+
+
+    <aside>
+        <a href="https://www.youtube.com/watch?v=d1iaLDcd98w">
+            <img src="{% static 'main/butelka.png' %}" alt="butelka cisowianki" width="300px">
+        </a>
+    </aside>
+    <div style="clear:both"></div>
+
+    <footer id="main_footer">
+        <div>
+            "Niech woda będzie z tobą" - Jan Cisowian IV, 1863 r. <br>
+            Cisowianka Spółka Komandytowo Akcyjna z siedzibą w Warszawa, Jana Lukasiewicza 33, wszelkie prawa
+            zastrzeżone &copy;
+        </div>
+
+
+    </footer>
+
+</body>
